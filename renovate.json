@@ -1,0 +1,124 @@
+{
+  "extends": [
+    "config:base",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "schedule": [
+    "before 4am on monday"
+  ],
+  "timezone": "UTC",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "breaking"
+      ]
+    },
+    {
+      "matchPackagePatterns": [
+        "^androidx\\."
+      ],
+      "groupName": "AndroidX dependencies",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": [
+        "^com\\.google\\.dagger"
+      ],
+      "groupName": "Dagger dependencies",
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "dagger"
+      ]
+    },
+    {
+      "matchPackagePatterns": [
+        "^org\\.jetbrains\\.kotlin"
+      ],
+      "groupName": "Kotlin dependencies",
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "kotlin"
+      ]
+    },
+    {
+      "matchPackagePatterns": [
+        "^androidx\\.compose"
+      ],
+      "groupName": "Compose dependencies",
+      "automerge": false,
+      "labels": [
+        "dependencies",
+        "compose"
+      ]
+    },
+    {
+      "matchPackagePatterns": [
+        "^io\\.mockk",
+        "^io\\.strikt",
+        "^app\\.cash\\.turbine"
+      ],
+      "groupName": "Testing dependencies",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": [
+        "^com\\.squareup\\.leakcanary"
+      ],
+      "groupName": "Performance dependencies",
+      "automerge": true
+    }
+  ],
+  "assignees": [
+    "harishoulis"
+  ],
+  "reviewers": [
+    "harishoulis"
+  ],
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 10,
+  "rangeStrategy": "bump",
+  "bumpVersion": "patch",
+  "recreateClosed": true,
+  "rebaseWhen": "behind-base-branch",
+  "rebaseLabel": "rebase",
+  "assignAutomerge": true,
+  "automergeType": "pr",
+  "platformAutomerge": true,
+  "git-submodules": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 4am on monday"
+    ]
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": [
+      "at any time"
+    ]
+  }
+}

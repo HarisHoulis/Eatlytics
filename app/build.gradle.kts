@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.gradle.best.practices)
-    alias(libs.plugins.dependency.analysis)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -90,13 +88,14 @@ dependencies {
     implementation(libs.androidx.material3)
     
     // Navigation 3
-    implementation(libs.androidx.navigation3)
-    
-    // Dagger 2 / Hilt
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.kotlinx.serialization.core)
+
+    // Dagger 2
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
     
     // Serialization
     implementation(libs.kotlinx.serialization.json)

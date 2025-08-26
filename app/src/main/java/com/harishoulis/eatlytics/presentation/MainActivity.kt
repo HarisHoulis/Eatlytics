@@ -9,13 +9,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation3.NavDisplay
-import androidx.navigation3.NavStack
 import androidx.navigation3.rememberNavStack
-import com.harishoulis.eatlytics.presentation.ui.theme.EatlyticsTheme
 import com.harishoulis.eatlytics.presentation.navigation.EatlyticsNavigation
-import dagger.hilt.android.AndroidEntryPoint
+import com.harishoulis.eatlytics.presentation.ui.theme.EatlyticsTheme
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

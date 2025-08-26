@@ -1,0 +1,67 @@
+# Gradle Doctor Configuration
+# https://github.com/runningcode/gradle-doctor
+
+# Enable all checks
+enableAllChecks: true
+
+# Specific checks to enable/disable
+checks:
+  # Build cache
+  buildCache:
+    enabled: true
+    maxCacheSize: "2GB"
+  
+  # Parallel execution
+  parallelExecution:
+    enabled: true
+    maxWorkers: 4
+  
+  # Configuration cache
+  configurationCache:
+    enabled: true
+  
+  # Gradle daemon
+  gradleDaemon:
+    enabled: true
+    maxHeapSize: "2GB"
+  
+  # Dependency verification
+  dependencyVerification:
+    enabled: true
+  
+  # Build scan
+  buildScan:
+    enabled: true
+  
+  # Performance monitoring
+  performanceMonitoring:
+    enabled: true
+    threshold: 30 # seconds
+
+# Recommendations
+recommendations:
+  # Suggest optimizations
+  suggestOptimizations: true
+  
+  # Suggest dependency updates
+  suggestDependencyUpdates: true
+  
+  # Suggest plugin updates
+  suggestPluginUpdates: true
+  
+  # Suggest build configuration improvements
+  suggestBuildConfigImprovements: true
+
+# Output configuration
+output:
+  # Verbose output
+  verbose: false
+  
+  # Show warnings
+  showWarnings: true
+  
+  # Show suggestions
+  showSuggestions: true
+  
+  # Output format (text, json, html)
+  format: "text"
