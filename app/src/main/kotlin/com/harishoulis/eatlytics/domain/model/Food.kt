@@ -1,6 +1,7 @@
 package com.harishoulis.eatlytics.domain.model
 
 import kotlinx.serialization.Serializable
+import kotlin.math.absoluteValue
 
 /**
  * Value class representing a unique food identifier

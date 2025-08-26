@@ -1,9 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.kapt)
+    id("eatlytics.android.application.compose")
+    id("eatlytics.android.hilt")
+    id("eatlytics.android.testing")
 }
 
 android {
@@ -86,16 +88,14 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    
-    // Navigation 3
+
+    // Navigation 3 - Core libraries
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.navigation3.runtime)
+
+    // Navigation 3 - Optional add-on libraries
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
     implementation(libs.kotlinx.serialization.core)
-
-    // Dagger 2
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
     
     // Serialization
     implementation(libs.kotlinx.serialization.json)
